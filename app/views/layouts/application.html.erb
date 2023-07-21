@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="https://kit.fontawesome.com/8950359074.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/89 50359074.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -32,7 +32,7 @@
          <i class="fa-solid fa-users"></i>
         </li>
         <li>
-         <%= link_to "Books", book_path(book.id), class: 'nav-link text-light' %>
+         <%= link_to "Books", root_path, class: 'nav-link text-light' %>
          <i class="fa-solid fa-book-open"></i>
         </li>
         <li>
@@ -45,7 +45,7 @@
          <i class="fa-solid fa-house"></i>
         </li>
         <li>
-         <%= link_to "About", new_user_registration_path, class: 'nav-link text-light' %>
+         <%= link_to "About", about_path, class: 'nav-link text-light' %>
          <i class="fa-solid fa-link"></i>
         </li>
         <li>
