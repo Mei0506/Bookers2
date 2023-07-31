@@ -14,6 +14,9 @@ class UsersController < ApplicationController
     redirect_to user_path(user.id)
   end
   
+  def index
+  end
+  
   private
   
   def user_params
