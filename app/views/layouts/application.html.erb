@@ -5,13 +5,13 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <script src="https://kit.fontawesome.com/89 50359074.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8950359074.js" crossorigin="anonymous"></script>
     <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class="d-flex flex-column vh-100">
-   <header>
+   <header class="shadow-sm">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
      <div class="container">
       <a class="navbar-brand" href="/">
@@ -24,15 +24,15 @@
        <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
         <li>
-         <%= link_to "Home", user_path(current_user.id), class: 'nav-link text-light' %>
+         <%= link_to "Home", users_path(current_user.id), class: 'nav-link text-light' %>
          <i class="fa-solid fa-house"></i>
         </li>
         <li>
-         <%= link_to "Users", user_path(current_user.id), class: 'nav-link text-light' %>
+         <%= link_to "Users", users_path, class: 'nav-link text-light' %>
          <i class="fa-solid fa-users"></i>
         </li>
         <li>
-         <%= link_to "Books", root_path, class: 'nav-link text-light' %>
+         <%= link_to "Books", books_path, class: 'nav-link text-light' %>
          <i class="fa-solid fa-book-open"></i>
         </li>
         <li>
