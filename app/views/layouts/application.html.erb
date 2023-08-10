@@ -80,6 +80,11 @@
    </header>
    
    <main class="mb-auto">
+    <div>
+     <% flash.each do |message_type, message| %>
+      <div class="flash-message <%= message_type %>"><%= message %></div>
+     <% end %>
+    </div>
    <%= yield %>
    </main>
   
@@ -92,5 +97,6 @@
       </div>
     </div>
    </footer>
+   
   </body>
 </html>
