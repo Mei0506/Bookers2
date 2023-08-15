@@ -5,5 +5,8 @@ class Book < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   belongs_to :user
+  
+  validates :title, presence: true
+  validates :body, length:{ minimum: 1, maximum: 200 }
 
 end

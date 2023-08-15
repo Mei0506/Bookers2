@@ -1,7 +1,30 @@
 <div class="container px-5 px-sm-0">
  <div class="row">
-
-  <%= render 'book', books: @books %>
+  <div class="col-md-3">
+    <h2>User info</h2>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <table class="table">
+     <tbody>
+       <tr></tr>
+       <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+       </tr>
+       <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+       </tr>
+     </tbody>
+    </table>
+    
+    <div>
+     <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block", method: :get do %>
+      <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+     <% end %>
+    </div>
+    
+   <%= render 'book', books: @books %>
+  </div>
 
     <div class="col-md-8 offset-md-1">
      <h2>Book detail</h2>
@@ -15,7 +38,7 @@
        </tr>
       </thead>
       <tbody>
-      <% @book.each do |book| %>
+      <% @books.each do |book| %>
         <tr>
          <td>
           <%= link_to user_path(book.user_id) do %>
@@ -28,6 +51,16 @@
           <% end %>
          </td>
          <td><%= book.body %></td>
+         <td>
+         <% if @book.user == current_user %>
+          <%= link_to "Edit", edit_book_path(@books), method: :edit %>
+         <% end %>
+         </td>
+         <td>
+         <% if @book.user == current_user %>
+          <%= link_to "Destroy", book_path(@books), method: :delete %>
+         <% end %>
+         </td>
         </tr>
        <% end %>
       </tbody>

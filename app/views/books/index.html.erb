@@ -1,7 +1,40 @@
 <div class="container px-5 px-sm-0">
  <div class="row">
-
-  <%= render 'book', books: @books %>
+  <div class="col-md-3">
+   
+   <% if @book.errors.any? %>
+    <%= @book.errors.count %> error prohibited this obj from being saved:
+    <ul>
+     <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+     <% end %>
+    </ul>
+   <% end %>
+   
+    <h2>User info</h2>
+    <%= image_tag @user.get_profile_image(100,100) %>
+    <table class="table">
+     <tbody>
+       <tr></tr>
+       <tr>
+        <th>name</th>
+        <th><%= @user.name %></th>
+       </tr>
+       <tr>
+        <th>introduction</th>
+        <th><%= @user.introduction %></th>
+       </tr>
+     </tbody>
+    </table>
+    
+    <div>
+     <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block", method: :get do %>
+      <i class="fa-solid fa-user-gear" aria-hidden="true"></i>
+     <% end %>
+    </div>
+    
+   <%= render 'book', books: @books %>
+  </div>
 
     <div class="col-md-8 offset-md-1">
      <h2>Books</h2>
