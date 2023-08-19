@@ -4,7 +4,7 @@ class BooksController < ApplicationController
   
   def new
     @book = Book.new
-    redirect_to books_path
+    redirect_to book_path(@book.id)
   end
   
   def create
