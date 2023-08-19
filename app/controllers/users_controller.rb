@@ -8,6 +8,12 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
+  def index
+    @users = User.all.page(params[:page]).per(10)
+    @user = current_user
+    @book = Book.new
+  end
+
   def edit
     @user = User.find(params[:id])
   end
@@ -21,12 +27,6 @@ class UsersController < ApplicationController
     else
       render :edit
     end
-  end
-  
-  def index
-    @users = User.all
-    @user = current_user
-    @book = Book.new
   end
   
   def change
